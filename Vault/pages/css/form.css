@@ -1,0 +1,44 @@
+/* =========================
+   Form Styles - Vault
+   ========================= */
+
+/* Labels */
+.form-label {
+    font-weight: 500;
+    color: #344054;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 8px;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.3);
+    outline: none;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #0a2540;
+    border: none;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #163a5f;
+}
+
+/* Optional: full-width buttons inside forms */
+form .btn {
+    width: 100%;
+}

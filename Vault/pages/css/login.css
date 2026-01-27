@@ -1,0 +1,176 @@
+/* login.css - basic, responsive styles for a clean login page */
+
+:root{
+    --bg-1: #eef2ff;
+    --bg-2: #f7fbff;
+    --card: #ffffff;
+    --accent: #4f46e5; /* indigo-600 */
+    --accent-hover: #4338ca;
+    --muted: #6b7280;
+    --text: #111827;
+    --radius: 12px;
+    --glass: rgba(255,255,255,0.6);
+}
+
+* { box-sizing: border-box; }
+html,body { height: 100%; }
+body{
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 2rem;
+}
+
+/* Center card */
+.login-card{
+    width: 100%;
+    max-width: 420px;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(17,24,39,0.08);
+    border: 1px solid rgba(15,23,42,0.04);
+}
+
+/* Header */
+.login-header{
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+.login-header h1{
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+.login-header p{
+    margin: 0.4rem 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+.login-logo {
+    width: 120px;      /* small and clean */
+    height: auto;
+    cursor: pointer;
+    cursor: var(--accent-hover);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.login-logo:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Form layout */
+.login-form { width: 100%; margin-top: 0.5rem; }
+.field {
+    margin-bottom: 0.85rem;
+}
+.label{
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.35rem;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid rgba(15,23,42,0.08);
+    background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(250,250,250,0.9));
+    font-size: 0.98rem;
+    color: var(--text);
+    transition: box-shadow 160ms ease, border-color 160ms ease, transform 80ms ease;
+    outline: none;
+}
+input::placeholder { color: rgba(17,24,39,0.35); }
+
+/* Focus state */
+input:focus{
+    border-color: var(--accent);
+    box-shadow: 0 6px 18px rgba(79,70,229,0.08);
+    transform: translateY(-1px);
+}
+
+/* Actions row */
+.form-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.remember{
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+.remember input { width: 16px; height: 16px; }
+
+/* Primary button */
+.btn{
+    display: inline-block;
+    width: 100%;
+    padding: 0.85rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.98rem;
+    transition: transform 90ms ease, background-color 120ms ease, box-shadow 120ms;
+}
+.btn-primary{
+    background: linear-gradient(180deg, var(--accent), var(--accent-hover));
+    color: white;
+    box-shadow: 0 8px 20px rgba(79,70,229,0.12);
+}
+.btn-primary:hover{ transform: translateY(-2px); }
+.btn-primary:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(79,70,229,0.10); }
+
+/* Secondary link */
+.link{
+    font-size: 0.9rem;
+    color: var(--accent);
+    text-decoration: none;
+}
+.link:hover{ text-decoration: underline; }
+
+/* Error / helper text */
+.helper{
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+.error{
+    color: #dc2626; /* red-600 */
+    font-size: 0.85rem;
+}
+
+/* Small footprint social / alt actions */
+.alt {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* Responsive tweaks */
+@media (max-width: 420px){
+    .login-card { padding: 1.25rem; border-radius: 10px; }
+    .login-header h1 { font-size: 1.05rem; }
+    input[type="text"], input[type="email"], input[type="password"] { padding: 0.65rem 0.8rem; }
+    .btn { padding: 0.75rem; }
+}

@@ -1,0 +1,64 @@
+/* =========================
+   Global Styles - VAULT
+   ========================= */
+
+/* Import professional font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #0d6efd;
+    --dark-color: #212529;
+    --light-gray: #f8f9fa;
+}
+
+/* Reset & Base */
+body {
+    font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--light-gray);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+
+
+/* Buttons */
+.btn {
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Cards */
+.card {
+    border-radius: 10px;
+}
+
+/* Forms */
+.form-label {
+    font-weight: 500;
+}
+
+.form-control {
+    border-radius: 6px;
+    padding: 10px;
+}
+
+/* Tables */
+.table th {
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    font-size: 0.9rem;
+}

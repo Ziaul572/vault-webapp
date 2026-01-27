@@ -1,0 +1,60 @@
+/* =========================
+   Navbar CSS for VAULT
+   ========================= */
+
+/* Navbar background */
+.navbar {
+    background-color: #0a2540; /* Vault primary color */
+    
+}
+
+/* Brand / logo */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #fff !important;
+    letter-spacing: 1px;
+}
+
+/* Nav links */
+.nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    margin-right: 10px;
+}
+
+/* Nav links hover */
+.nav-link:hover {
+    color: #d0e1ff !important; /* lighter blue on hover */
+}
+
+/* Active link styling */
+.nav-link.active {
+    color: #ffc107 !important; /* yellow accent for active page */
+}
+
+/* Buttons inside navbar (if any) */
+.navbar .btn {
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 6px 12px;
+    transition: background-color 0.2s ease;
+}
+
+.navbar .btn-primary {
+    background-color: #ffffff;
+    color: #0d6efd;
+    border: none;
+}
+
+.navbar .btn-primary:hover {
+    background-color: #e6e6e6;
+}
+
+/* Responsive tweaks */
+@media (max-width: 991px) {
+    .navbar-nav .nav-link {
+        margin: 0.5rem 0;
+    }
+}
