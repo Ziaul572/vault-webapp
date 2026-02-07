@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VAULT | Transfer Money</title>
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="css/main.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+  <link rel="stylesheet" href="css/navbar.css">
+
+  <link rel="stylesheet" href="css/form.css">
+
+  <!-- Page specific styles -->
+  <link rel="stylesheet" href="css/transfer.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">VAULT</a>
+
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="accounts.html">Accounts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="transaction.html">Transactions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="loans.html">Loans</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-logout" href="loginPage.html">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">       </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="profile.html">User</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+  <!-- Main Content -->
+  <main class="transfer-container">
+
+    
+
+    <!-- Transfer Form -->
+    <form class="transfer-form">
+      <h1 style="text-align: center;">Send / Transfer Money</h1>
+    <p class="subtitle" style="text-align: center;">Transfer funds between accounts or to another user</p>
+
+      <!-- From Account -->
+      <div class="form-group">
+        <label for="fromAccount">From Account</label>
+        <select id="fromAccount" name="fromAccount">
+          <option>Savings Account - €5,420.75</option>
+          <option>Current Account - €1,230.40</option>
+        </select>
+      </div>
+
+      <!-- To Account -->
+      <div class="form-group">
+        <label for="toAccount">Recipient Account</label>
+        <input
+          type="text"
+          id="toAccount"
+          name="toAccount"
+          placeholder="Recipient account number"
+        >
+      </div>
+
+      <!-- Amount -->
+      <div class="form-group">
+        <label for="amount">Amount (€)</label>
+        <input
+          type="number"
+          id="amount"
+          name="amount"
+          placeholder="Enter amount"
+        >
+      </div>
+
+      <!-- Reference -->
+      <div class="form-group">
+        <label for="reference">Reference</label>
+        <input
+          type="text"
+          id="reference"
+          name="reference"
+          placeholder="Payment reference"
+        >
+      </div>
+
+      <!-- Actions -->
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Send Money</button>
+        <a href="transactions.html" class="btn-secondary">Cancel</a>
+      </div>
+
+    </form>
+
+  </main>
+
+</body>
+</html>

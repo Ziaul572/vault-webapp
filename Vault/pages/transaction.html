@@ -19,26 +19,53 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="dashboard.html">VAULT</a>
+    <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">VAULT</a>
 
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="accounts.html">Accounts</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="transactions.html">Transactions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="accounts.html">Accounts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="transaction.html">Transactions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="loans.html">Loans</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-logout" href="loginPage.html">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">       </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="profile.html">User</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
     <!-- Page Content -->
     <div class="container transactions-page">
-        <h2 class="page-title">Transaction History</h2>
-        <p class="page-subtitle">Recent activity on your account</p>
+       
+
+        <!-- Transactions Header -->
+<div class="transactions-header">
+  <div>
+    <h2 class="page-title">Transactions</h2>
+    <p class="page-subtitle">Your recent account activity</p>
+  </div>
+
+  <!-- Transfer Button -->
+  <a href="transfer.html" class="btn-transfer">
+    + Send / Transfer
+  </a>
+</div>
 
         <div class="table-responsive">
             <table class="table transactions-table">
@@ -96,5 +123,14 @@
         </div>
     </div>
 
+    <!-- FOOTER -->
+<footer class="text-black py-4">
+    <div class="container text-center">
+        <p class="mb-1 fw-semibold">© 2026 VAULT Bank. All rights reserved.</p>
+        <p class="mb-0 text-muted">
+            © 2026 VAULT. This is a student project for academic purposes.
+        </p>
+    </div>
+</footer>
 </body>
 </html>

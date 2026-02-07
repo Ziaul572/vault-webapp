@@ -1,0 +1,11 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#0a2540"></rect>
+
+  <rect x="300" y="120" width="200" height="160" rx="16" fill="#ffffff"></rect>
+  <circle cx="400" cy="170" r="28" fill="#0a2540"></circle>
+  <rect x="360" y="190" width="80" height="50" rx="8" fill="#0a2540"></rect>
+
+  <text x="400" y="310" text-anchor="middle" font-size="28" fill="#ffffff" font-family="Arial, sans-serif" font-weight="600">
+    Secure &amp; Trusted Banking
+  </text>
+</svg>

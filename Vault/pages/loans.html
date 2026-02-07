@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loans | Vault Bank</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Main site styles -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Loans page specific styles -->
+    <link rel="stylesheet" href="css/loans.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">  
+
+    <!-- navbar CSS -->
+    <link rel="stylesheet" href="css/navbar.css">
+
+
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">VAULT</a>
+
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link " href="dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="accounts.html">Accounts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="transaction.html">Transactions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="loans.html">Loans</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link-logout nav-link" href="loginPage.html">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">       </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="profile.html">User</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- Main Content -->
+    <main class="loans-container">
+
+        <!-- Page Heading -->
+        <section class="loans-header">
+            <h1>Loans</h1>
+            <p>Explore loan options designed to support your personal and financial goals.</p>
+        </section>
+
+        <!-- Available Loan Types -->
+        <section class="loan-types">
+            <h2>Available Loan Options</h2>
+
+            <div class="loan-card">
+                <h3>Personal Loan</h3>
+                <p>Flexible loans for personal expenses such as travel, education, or emergencies.</p>
+                <ul>
+                    <li>Interest Rate: 6.5%</li>
+                    <li>Tenure: Up to 5 years</li>
+                    <li>Maximum Amount: €20,000</li>
+                </ul>
+            </div>
+
+            <div class="loan-card">
+                <h3>Home Loan</h3>
+                <p>Affordable home financing solutions with long-term repayment options.</p>
+                <ul>
+                    <li>Interest Rate: 4.2%</li>
+                    <li>Tenure: Up to 30 years</li>
+                    <li>Maximum Amount: €500,000</li>
+                </ul>
+            </div>
+
+            <div class="loan-card">
+                <h3>Car Loan</h3>
+                <p>Drive your dream car with competitive interest rates and quick approvals.</p>
+                <ul>
+                    <li>Interest Rate: 5.1%</li>
+                    <li>Tenure: Up to 7 years</li>
+                    <li>Maximum Amount: €50,000</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Loan Application Form (Static) -->
+        <section class="loan-form-section">
+            <h2>Apply for a Loan</h2>
+            <p>This is a demo form. Loan processing will be implemented in future assignments.</p>
+
+            <form class="loan-form">
+                <label for="loan-type">Loan Type</label>
+                <select id="loan-type" name="loan-type">
+                    <option>Personal Loan</option>
+                    <option>Home Loan</option>
+                    <option>Car Loan</option>
+                </select>
+
+                <label for="amount">Loan Amount (€)</label>
+                <input type="number" id="amount" placeholder="Enter amount">
+
+                <label for="duration">Duration (Years)</label>
+                <input type="number" id="duration" placeholder="Enter duration">
+
+                <button type="button" disabled>Apply for Loan</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+<footer class="text-black py-4">
+    <div class="container text-center">
+        <p class="mb-1 fw-semibold">© 2026 VAULT Bank. All rights reserved.</p>
+        <p class="mb-0 text-muted">
+            © 2026 VAULT. This is a student project for academic purposes.
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

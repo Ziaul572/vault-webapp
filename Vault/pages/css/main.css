@@ -43,15 +43,12 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 10px;
 }
 
-/* Forms */
-.form-label {
-    font-weight: 500;
+.card-body :hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
 }
 
-.form-control {
-    border-radius: 6px;
-    padding: 10px;
-}
+
 
 /* Tables */
 .table th {

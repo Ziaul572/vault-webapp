@@ -16,6 +16,8 @@
     letter-spacing: 1px;
 }
 
+
+
 /* Nav links */
 .nav-link {
     color: #ffffff !important;
@@ -32,6 +34,17 @@
 /* Active link styling */
 .nav-link.active {
     color: #ffc107 !important; /* yellow accent for active page */
+}
+
+.nav-link-logout {
+    color: #ffffff !important;
+    font-weight: 500;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    margin-right: 10px;
+}
+
+.nav-link-logout:hover {
+    color: #ff1f1f !important; /* logout warning color */
 }
 
 /* Buttons inside navbar (if any) */

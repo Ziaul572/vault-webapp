@@ -1,0 +1,79 @@
+/* Accounts page layout */
+.accounts-container {
+  padding: 40px 30px;
+}
+
+.accounts-container h1 {
+  margin-bottom: 5px;
+  font-size: 26px;
+}
+
+.subtitle {
+  color: #6c757d;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+/* Accounts grid */
+.accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Account card */
+.account-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.account-card:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.account-card h2 {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.account-number {
+  font-size: 13px;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+/* Balance section */
+.balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.balance strong {
+  font-size: 20px;
+  color: #0a2540;
+}
+
+/* Account info list */
+.account-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.account-info li {
+  font-size: 14px;
+  padding: 6px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.account-info li:last-child {
+  border-bottom: none;
+}

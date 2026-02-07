@@ -1,5 +1,5 @@
 /* =========================
-   Authentication Pages CSS
+   Login Page CSS
    ========================= */
 
 /* Body and container */
@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #0a2540, #1e3a5f);
+    background: linear-gradient(135deg, #878b8f, #8b9197);
 }
 
 .auth-container {

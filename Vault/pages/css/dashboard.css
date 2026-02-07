@@ -3,6 +3,11 @@
 .summary-card {
     border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.summary-card:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12);
 }
 
 .summary-card h3 {
@@ -10,6 +15,15 @@
     font-weight: 600;
 }
 
-table th {
+table {
     font-weight: 600;
+    transition: box-shadow 0.3s ease;
+    /*box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12);*/
+}
+.table-striped tbody tr:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12);
+}
+
+table :hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12);
 }
