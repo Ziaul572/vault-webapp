@@ -1,10 +1,17 @@
-/* Transfer page container */
+/* ======================================
+   transfer Stylesheet
+   This file contains styles specific
+   to the transfer.html page
+   ====================================== */
+
+   /* page layout style */
 .transfer-container {
   max-width: 500px;
   margin: 40px auto;
   padding: 0 20px;
 }
 
+/* page container header */
 .transfer-container h1 {
   margin-bottom: 5px;
 }
@@ -15,6 +22,7 @@
   margin-bottom: 30px;
 }
 
+/* used specified form because this one is different from the others */
 /* Transfer form */
 .transfer-form {
   background: #ffffff;
@@ -50,6 +58,7 @@
   margin-top: 25px;
 }
 
+/* send money button */
 .btn-primary {
   flex: 1;
   background: #0a2540;
@@ -66,6 +75,7 @@
   background: #308ce8;
 }
 
+/* cancel button */
 .btn-secondary {
   flex: 1;
   background: #f1f3f5;

@@ -38,6 +38,7 @@
     cursor: pointer;
 }
 
+/* logo hover effect */
 .logo-link:hover .auth-logo {
     transform: scale(1.05);
     opacity: 0.9;
@@ -50,14 +51,14 @@
     margin-bottom: 20px;
 }
 
-/* Title */
+/* login page Title */
 .auth-title {
     font-weight: 600;
     color: #0a2540;
     margin-bottom: 20px;
 }
 
-/* Form labels */
+/* Form labels texts */
 .form-label {
     font-weight: 500;
     color: #344054;
@@ -66,7 +67,7 @@
     margin-bottom: 5px;
 }
 
-/* Inputs */
+/* Inputs bar */
 .form-control {
     border-radius: 8px;
     padding: 10px 12px;
@@ -74,6 +75,7 @@
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* input bar when active */
 .form-control:focus {
     border-color: #0d6efd;
     box-shadow: 0 0 5px rgba(13,110,253,0.3);
@@ -90,6 +92,7 @@
     transition: background-color 0.2s ease;
 }
 
+/* btn hover */
 .btn-primary:hover {
     background-color: #163a5f;
 }

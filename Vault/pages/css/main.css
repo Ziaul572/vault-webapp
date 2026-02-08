@@ -1,6 +1,8 @@
-/* =========================
-   Global Styles - VAULT
-   ========================= */
+/* ======================================
+   main Stylesheet
+   This file contains styles specific
+   global CSS which is used for every page
+   ====================================== */
 
 /* Import professional font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');

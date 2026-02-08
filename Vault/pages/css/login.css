@@ -1,5 +1,10 @@
-/* login.css - basic, responsive styles for a clean login page */
+/* ======================================
+   Login Page Stylesheet
+   This file contains styles specific
+   to the loginPage.html page
+   ====================================== */
 
+   /* custom variables for full page styling */
 :root{
     --bg-1: #eef2ff;
     --bg-2: #f7fbff;
@@ -55,7 +60,7 @@ body{
     font-size: 0.9rem;
 }
 .login-logo {
-    width: 120px;      /* small and clean */
+    width: 120px;      /* adjustable logo */
     height: auto;
     cursor: pointer;
     cursor: var(--accent-hover);
@@ -78,7 +83,7 @@ body{
     margin-bottom: 0.35rem;
 }
 
-/* Inputs */
+/* Input bar */
 input[type="text"],
 input[type="email"],
 input[type="password"]{
@@ -94,7 +99,7 @@ input[type="password"]{
 }
 input::placeholder { color: rgba(17,24,39,0.35); }
 
-/* Focus state */
+/* when input bar is active */
 input:focus{
     border-color: var(--accent);
     box-shadow: 0 6px 18px rgba(79,70,229,0.08);
