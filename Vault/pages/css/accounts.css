@@ -1,4 +1,10 @@
-/* Accounts page layout */
+/* ======================================
+   Accounts Page Stylesheet
+   This file contains styles specific
+   to the accounts.html page
+   ====================================== */
+
+   /* account page layout */
 .accounts-container {
   padding: 40px 30px;
 }
@@ -8,6 +14,7 @@
   font-size: 26px;
 }
 
+ /* subtext for accounts page */
 .subtitle {
   color: #6c757d;
   margin-bottom: 30px;
@@ -21,7 +28,7 @@
   gap: 20px;
 }
 
-/* Account card */
+/* Account card shows each type of accounts */
 .account-card {
   background: #ffffff;
   border-radius: 12px;
@@ -30,15 +37,18 @@
   transition: box-shadow 0.3s ease;
 }
 
+/* hover effects for accounts card info */
 .account-card:hover {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* account cards heading styles */
 .account-card h2 {
   margin-bottom: 5px;
   font-size: 20px;
 }
 
+/* accounts cards number styles */
 .account-number {
   font-size: 13px;
   color: #6c757d;

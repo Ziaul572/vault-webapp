@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Character encoding -->
     <meta charset="UTF-8">
     <title>Loans | Vault Bank</title>
+
+    <!-- Makes the page responsive on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Main site styles -->
@@ -22,7 +25,8 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- ================= NAVIGATION BAR ================= -->
+    <!-- Contains logo and navigation links -->
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand fw-bold" href="index.html">VAULT</a>
@@ -53,19 +57,22 @@
     </div>
 </nav>
 
-    <!-- Main Content -->
+    <!-- ================= MAIN CONTENT ================= -->
+
     <main class="loans-container">
 
-        <!-- Page Heading -->
+        <!-- Page heading and short description -->
         <section class="loans-header">
             <h1>Loans</h1>
             <p>Explore loan options designed to support your personal and financial goals.</p>
         </section>
 
-        <!-- Available Loan Types -->
+        <!-- ================= LOAN TYPES ================= -->
+        <!-- Static demo data (no backend connection yet) -->
         <section class="loan-types">
             <h2>Available Loan Options</h2>
 
+            <!-- Personal Loan Card -->
             <div class="loan-card">
                 <h3>Personal Loan</h3>
                 <p>Flexible loans for personal expenses such as travel, education, or emergencies.</p>
@@ -76,6 +83,7 @@
                 </ul>
             </div>
 
+            <!-- Home Loan Card -->
             <div class="loan-card">
                 <h3>Home Loan</h3>
                 <p>Affordable home financing solutions with long-term repayment options.</p>
@@ -86,6 +94,7 @@
                 </ul>
             </div>
 
+            <!-- Car Loan Card -->
             <div class="loan-card">
                 <h3>Car Loan</h3>
                 <p>Drive your dream car with competitive interest rates and quick approvals.</p>
@@ -97,7 +106,8 @@
             </div>
         </section>
 
-        <!-- Loan Application Form (Static) -->
+        <!-- ================= LOAN APPLICATION FORM ================= -->
+        <!-- Form is static and non-functional for Assignment 1 -->
         <section class="loan-form-section">
             <h2>Apply for a Loan</h2>
             <p>This is a demo form. Loan processing will be implemented in future assignments.</p>
@@ -110,27 +120,30 @@
                     <option>Car Loan</option>
                 </select>
 
+                <!-- Loan amount input -->
                 <label for="amount">Loan Amount (€)</label>
                 <input type="number" id="amount" placeholder="Enter amount">
 
+                <!-- Loan duration input -->
                 <label for="duration">Duration (Years)</label>
                 <input type="number" id="duration" placeholder="Enter duration">
 
+                <!-- Disabled button since backend is not implemented -->
                 <button type="button" disabled>Apply for Loan</button>
             </form>
         </section>
 
     </main>
 
-    <!-- FOOTER -->
-<footer class="text-black py-4">
-    <div class="container text-center">
-        <p class="mb-1 fw-semibold">© 2026 VAULT Bank. All rights reserved.</p>
-        <p class="mb-0 text-muted">
-            © 2026 VAULT. This is a student project for academic purposes.
-        </p>
-    </div>
-</footer>
+    <!-- ================= FOOTER ================= -->
+        <footer class="text-black py-4">
+            <div class="container text-center">
+                <p class="mb-1 fw-semibold">© 2026 VAULT Bank. All rights reserved.</p>
+                <p class="mb-0 text-muted">
+                    © 2026 VAULT. This is a student project for academic purposes.
+                </p>
+            </div>
+        </footer>
 
 </body>
 </html>
