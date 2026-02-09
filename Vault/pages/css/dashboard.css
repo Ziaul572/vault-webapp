@@ -23,12 +23,17 @@
 }
 
 /* used for table box shadow effect with 0.3s transition effect */
-table {
+.card-body {
     font-weight: 600;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
-table :hover {
+.card-body:hover {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12);
     transition: box-shadow 0.3s ease;
+}
+/* main content page padding */
+.my-5 {
+    margin-top: 3rem !important;
+    margin-bottom: 7rem !important;
 }

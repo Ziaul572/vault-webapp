@@ -10,7 +10,7 @@
 :root {
     --primary-color: #0d6efd;
     --dark-color: #212529;
-    --light-gray: #cfd4d9;
+    /* --light-gray: #cfd4d9; */
 }
 
 /* Reset & Base */
@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
 .site-footer {
     background-color: #0b1c2d; /* deep banking blue */
     color: #ffffff;
-    padding: 2rem 0 2rem;
+    padding: 5rem 0 4rem;
     font-size: 0.7rem;
 }
 

@@ -7,7 +7,10 @@
    /* account page layout */
 .accounts-container {
   padding: 40px 30px;
+  margin-top: 3rem !important;
+  margin-bottom: 7rem !important;
 }
+
 
 .accounts-container h1 {
   margin-bottom: 5px;

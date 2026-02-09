@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #878b8f, #8b9197);
+    background: linear-gradient(135deg, #ecedee, #e6e8ea);
 }
 
 .auth-container {
