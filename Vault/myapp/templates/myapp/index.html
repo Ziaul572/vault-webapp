@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+    <title>VAULT | Digital Banking</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Global CSS used across all over the project-->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Navbar CSS -->
+    <link rel="stylesheet" href="css/navbar.css">
+
+</head>
+<body>
+
+<!-- ================= NAVIGATION BAR ================= -->
+    <!-- Contains logo and navigation links -->
+
+<nav class="navbar navbar-expand-lg ">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">VAULT</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#vaultNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="vaultNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="loginPage.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-light text-primary ms-lg-3 px-3" href="register.html">
+                        Open Account
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!--  -->
+<!-- Sliding page Carousel will be added with JS -->
+<!--  -->
+
+<!-- HERO SECTION this is the area for the main actions like login and create accounts-->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="fw-bold mb-3">
+                    Welcome to VAULT
+                </h1>
+                <p class="lead text-muted mb-4">
+                    VAULT is a secure digital banking platform designed to help users manage their finances 
+                    anytime, anywhere. Our system provides a modern and user-friendly interface for everyday banking needs.
+                </p>
+
+                <a href="loginPage.html" class="btn btn-primary btn-lg me-2">
+                    Login
+                </a>
+                <a href="register.html" class="btn btn-outline-primary btn-lg">
+                    Create Account
+                </a>
+            </div>
+
+            <div class="col-md-6 text-center">
+                <img src="assets/images/vault_logo.svg" class="img-fluid" alt="Digital Banking">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- SERVICES SECTION shows the projects promising services -->
+<section id="services" class="py-5"> 
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">What VAULT Provides</h2>
+            <p class="text-muted">
+                A complete digital banking experience built for simplicity and security.
+            </p>
+        </div>
+
+        <div class="row g-4">                <!--grid row with gap 4 -->
+            <div class="col-md-4">             <!-- column width 4 -->
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Account Management</h5>
+                        <p class="card-text text-muted">
+                            View balances, manage multiple accounts, and track your financial activity with ease.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">   <!--makes all cards equal sized  -->
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Secure Transfers</h5>
+                        <p class="card-text text-muted">
+                            Transfer funds securely between accounts with clear transaction records.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Transaction History</h5>
+                        <p class="card-text text-muted">
+                            Access detailed transaction history to monitor spending and income.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Card Services</h5>
+                        <p class="card-text text-muted">
+                            Manage debit and credit cards, including activation and security controls.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Loan Information</h5>
+                        <p class="card-text text-muted">
+                            View available loan options and repayment information in one place.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Customer Support</h5>
+                        <p class="card-text text-muted">
+                            Get assistance through our support system whenever you need help.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+
+            <!-- Brand / About -->
+            <div class="col-md-4 mb-4">
+                <h5>VAULT</h5>
+                <div class="footer-divider"></div>
+                <p>
+                    VAULT is a secure digital banking platform designed to simplify
+                    account management, money transfers, and financial tracking.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4 mb-4">
+                <h5>Quick Links</h5>
+                <div class="footer-divider"></div>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="loginPage.html">Accounts</a></li>                   
+                    <li><a href="loginPage.html">Transfers</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="col-md-4 mb-4">
+                <h5>Contact Us</h5>
+                <div class="footer-divider"></div>
+                <p><strong>Email:</strong> support@vaultbank.ie</p>
+                <p><strong>Phone:</strong> +353 1 234 5678</p>
+                <p>
+                    <strong>Address:</strong><br>
+                    12 Digital Finance Way,<br>
+                    Dublin, Ireland
+                </p>
+                <p>Support Hours: Mon–Fri, 9:00 AM – 6:00 PM</p>
+            </div>
+
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            © 2026 VAULT. All rights reserved.
+            <small>This is a demo project created for educational purposes.</small>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

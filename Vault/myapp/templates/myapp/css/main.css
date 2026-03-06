@@ -1,0 +1,116 @@
+/* ======================================
+   main Stylesheet
+   This file contains styles specific
+   global CSS which is used for every page
+   ====================================== */
+
+/* Import professional font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #0d6efd;
+    --dark-color: #212529;
+    /* --light-gray: #cfd4d9; */
+}
+
+/* Reset & Base */
+body {
+    font-family: 'Inter', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--light-gray);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+/* Headings defined */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+
+
+/* Buttons */
+.btn {
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Cards */
+.card {
+    border-radius: 10px;
+}
+
+.card-body :hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+
+
+/* Tables */
+.table th {
+    font-weight: 600;
+}
+
+
+/* ===== Footer ===== */
+.site-footer {
+    background-color: #0b1c2d; /* deep banking blue */
+    color: #ffffff;
+    padding: 5rem 0 4rem;
+    font-size: 0.7rem;
+}
+
+.site-footer h5 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: rgb(249, 249, 136);
+    font-size: 1rem;
+}
+
+.site-footer p {
+    margin-bottom: 0.2rem;
+    color: #cfd6dc;
+}
+
+.site-footer a {
+    color: #cfd6dc;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.site-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 1rem 0 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #aab4be;
+    font-size: 0.5rem;
+}
+
+.footer-bottom small {
+    display: block;
+    margin-top: 0.2rem;
+}

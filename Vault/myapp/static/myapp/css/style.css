@@ -1,0 +1,20 @@
+nav li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.form-error {
+    color: red;
+}
+
+.messages .error {
+    color: red;
+}
+
+.messages .success {
+    color: green;
+}

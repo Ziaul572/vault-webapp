@@ -1,0 +1,10 @@
+Django==5.1.7
+dj-database-url==2.3.0
+django-smart-fixtures==2.0.3
+
+# Uncomment for MySQL Database Support
+# On MacOS, you will first need to run "brew install mysql pkg-config"
+#ysqlclient==2.2.7
+
+# Uncomment for PostgreSQL Database Support
+psycopg==3.2.6 

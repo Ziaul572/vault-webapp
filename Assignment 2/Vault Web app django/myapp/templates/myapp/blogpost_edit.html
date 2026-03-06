@@ -1,0 +1,40 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Edit an existing Blog Post{% endblock %}
+
+{% block content %}
+  <h1>Editing Blog Post: {{ blogpost.title }}</h1>
+  
+  <form action="{% url 'myapp:blogpost_edit' blogpost.id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% if edit_blogpost_form.non_field_errors %}
+      <div class="form-error">
+        {{ edit_blogpost_form.non_field_errors }}
+      </div>
+    {% endif %}
+
+    <div>
+        <label for="id_content">Content:</label>
+        {{ edit_blogpost_form.content }}
+  
+        {% if edit_blogpost_form.content.errors %}
+          <div class="form-error">
+            {{ edit_blogpost_form.content.errors }}
+          </div>
+        {% endif %}
+      </div>
+        
+      <div>
+        <label for="id_image">Image:</label>
+        {{ edit_blogpost_form.image }}
+        {% if edit_blogpost_form.image.errors %}
+          <div class="form-error">
+            {{ edit_blogpost_form.image.errors }}
+          </div>
+        {% endif %}
+      </div>
+  
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

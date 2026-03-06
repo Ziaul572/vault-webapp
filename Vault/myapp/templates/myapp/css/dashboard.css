@@ -1,0 +1,39 @@
+/* ======================================
+   Dashboard Stylesheet
+   This file contains styles specific
+   to the dashboard.html page
+   ====================================== */
+
+/* Dashboard summary card css */
+.summary-card {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Hover effect for dashboard page cards */
+.summary-card:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* card labels */
+.summary-card h3 {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* used for table box shadow effect with 0.3s transition effect */
+.card-body {
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.card-body:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.3s ease;
+}
+/* main content page padding */
+.my-5 {
+    margin-top: 3rem !important;
+    margin-bottom: 7rem !important;
+}
