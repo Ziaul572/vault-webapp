@@ -14,74 +14,33 @@ def index(request: HttpRequest):
     context = {}
     return render(request, 'myapp/index.html', context)
 
+def home(request):
+    return render(request, 'myapp/index.html')
 
-def blogpost_list(request: HttpRequest):
-    logger.info(f'Called blogpost_list() with {request.method}')
-    blogpost_list = BlogPost.objects.all()
-    context = {
-        'blogpost_list': blogpost_list
-    }
-    return render(request, 'myapp/blogpost_list.html', context)
+def dashboard(request):
+    return render(request, "myapp/dashboard.html")
 
+def accounts(request):
+    return render(request, 'myapp/accounts.html')
 
-def blogpost_detail(request: HttpRequest, blogpost_id: int):
-    blogpost = get_object_or_404(BlogPost, id=blogpost_id)
-    context = {
-        'blogpost': blogpost,
-    }    
-    return render(request, 'myapp/blogpost_detail.html', context)
+def loans(request):
+    return render(request, 'myapp/loans.html')
 
+def transactions(request):
+    return render(request, 'myapp/transactions.html')
 
-def blogpost_create(request: HttpRequest):
-    if request.method == 'POST':
-        logger.info(f'blogpost_create(): POST data: {request.POST}')
-        form = NewBlogPostForm(request.POST, request.FILES)
-        if form.is_valid():
-            new_blogpost = BlogPost.objects.create(
-                title = form.cleaned_data['title'],
-                content = form.cleaned_data['content'],
-                image = form.cleaned_data['image'],
-                created = timezone.now(),
-                last_edited = timezone.now(),
-            )
-            return redirect(f'/blogposts/{new_blogpost.id}')
-    else:
-        form = NewBlogPostForm()
-    context = {
-        'new_blogpost_form': form
-    }
-    return render(request, 'myapp/blogpost_create.html', context)
+def transfer(request):
+    return render(request, "myapp/transfer.html")
+
+def login(request):
+    return render(request, "myapp/loginPage.html")
+
+def register(request):
+    return render(request, "myapp/register.html")
 
 
-def blogpost_edit(request: HttpRequest, blogpost_id: int):
-    blogpost = get_object_or_404(BlogPost, id=blogpost_id)
-    if request.method == 'POST':
-        logger.info(f'blogpost_edit(): POST data: {request.POST}')
-        form = EditBlogPostForm(request.POST, request.FILES)
-        if form.is_valid():
-            blogpost.content = form.cleaned_data['content']
-            if blogpost.image and (form.cleaned_data['image'] == False or form.cleaned_data['image']):
-                blogpost.image.delete()
-                blogpost.image = None
-            if form.cleaned_data['image']:
-                blogpost.image = form.cleaned_data['image']
-            blogpost.last_edited = timezone.now()
-            blogpost.save()
-            return redirect('myapp:blogpost_detail', blogpost.id)
-    else:
-        initial = {
-            'content': blogpost.content,
-            'image': blogpost.image
-        }
-        form = EditBlogPostForm(initial=initial)
-    context = {
-        'blogpost': blogpost,
-        'edit_blogpost_form': form
-    }
-    return render(request, 'myapp/blogpost_edit.html', context)
 
 
-def blogpost_delete(request: HttpRequest, blogpost_id: int):
-    blogpost = get_object_or_404(BlogPost, id=blogpost_id)
-    blogpost.delete()
-    return redirect('myapp:blogpost_list')
+
+
+

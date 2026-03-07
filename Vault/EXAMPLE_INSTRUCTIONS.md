@@ -1,4 +1,4 @@
-# EEN1037 Example Django Application
+sf# EEN1037 Example Django Application
 
 ## Overview
 

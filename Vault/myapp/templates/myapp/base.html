@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vault Bank</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="{% static 'myapp/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/navbar.css' %}">
+</head>
+
+<body>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/accounts">Accounts</a>
+    <a href="/transactions">Transactions</a>
+    <a href="/loans">Loans</a>
+    <a href="/profile">Profile</a>
+</nav>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>
