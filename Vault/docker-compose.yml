@@ -10,6 +10,7 @@ services:
       db:
         condition: service_started
     volumes:
+      - .:/app
       - myapp-storage:/app/storage
 
   db:

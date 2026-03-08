@@ -1,3 +1,6 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,26 +8,16 @@
     <title>Register | VAULT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Main CSS (global) -->
-    <link rel="stylesheet" href="css/main.css">
-
-    <!-- Form CSS -->
-    <link rel="stylesheet" href="css/form.css">
-
-    <!-- Auth CSS (register/login/forgot) -->
-    <link rel="stylesheet" href="css/auth.css">
 </head>
 <body class="auth-body">
-
+     {% block content %}
     <div class="auth-container">
         <div class="auth-card">
 
             <!-- Clickable Vault Logo -->
             <a href="index.html" class="logo-link">
-                <img src="assets/images/vault_logo.svg" alt="VAULT Logo" class="auth-logo">
+                <img src="{% static 'myapp/assets/images/vault_logo.svg' %}" alt="VAULT Logo" class="auth-logo">
             </a>
 
             <!-- Punchline -->
@@ -33,7 +26,8 @@
             <h4 class="auth-title">Create Account</h4>
 
             <!-- Registration Form -->
-            <form action="dashboard.html" method="POST" class="mt-4">
+            <form action="{% url 'myapp:dashboard' %}" method="POST" class="mt-4">
+                {% csrf_token %}
                 <div class="mb-3">
                     <label class="form-label" for="fullname">Full Name</label>
                     <input type="text" class="form-control" id="fullname" placeholder="John Doe" required>
@@ -70,5 +64,6 @@
         </div>
     </div>
 
+    {% endblock %}
 </body>
 </html>

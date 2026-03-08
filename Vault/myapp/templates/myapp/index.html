@@ -1,6 +1,8 @@
 {% extends "myapp/base.html" %}
 
-{% block content %} 
+{% load static %}
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,47 +14,13 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Global CSS used across all over the project-->
-    <link rel="stylesheet" href="css/main.css">
-    
-    <!-- Navbar CSS -->
-    <link rel="stylesheet" href="css/navbar.css">
+
 
 </head>
 <body>
 
-<!-- ================= NAVIGATION BAR ================= -->
-    <!-- Contains logo and navigation links -->
 
-<nav class="navbar navbar-expand-lg ">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">VAULT</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#vaultNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="vaultNav">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="loginPage.html">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-light text-primary ms-lg-3 px-3" href="register.html">
-                        Open Account
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
+{% block content %} 
 
 <!--  -->
 <!-- Sliding page Carousel will be added with JS -->
@@ -71,16 +39,16 @@
                     anytime, anywhere. Our system provides a modern and user-friendly interface for everyday banking needs.
                 </p>
 
-                <a href="loginPage.html" class="btn btn-primary btn-lg me-2">
+                <a href="{% url 'myapp:login' %}" class="btn btn-primary btn-lg me-2">
                     Login
                 </a>
-                <a href="register.html" class="btn btn-outline-primary btn-lg">
+                <a href="{% url 'myapp:register' %}" class="btn btn-outline-primary btn-lg">
                     Create Account
                 </a>
             </div>
 
             <div class="col-md-6 text-center">
-                <img src="assets/images/vault_logo.svg" class="img-fluid" alt="Digital Banking">
+                <img src="{% static 'myapp/assets/images/vault_logo.svg' %}" class="img-fluid" alt="Digital Banking">
             </div>
         </div>
     </div>
@@ -222,8 +190,7 @@
     </div>
 </footer>
 
-
+{% endblock %}
 </body>
 </html>
 
-{% endblock %}
