@@ -7,6 +7,7 @@ from .forms import RegisterForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 
 logger = logging.getLogger(__name__)
@@ -31,9 +32,15 @@ def login_view(request):
         email = request.POST.get("email")
         password = request.POST.get("password")
 
-        user = authenticate(request, email=email, password=password)
+        try:
+            user_obj = User.objects.get(email=email)
+            username = user_obj.username
+        except User.DoesNotExist:
+            username = None
+
+        user = authenticate(request, username=username, password=password)
         print("Email and password recieved")
-        print(email, password)
+        print(email,username, password)
         print(user)
 
         if user is not None:
