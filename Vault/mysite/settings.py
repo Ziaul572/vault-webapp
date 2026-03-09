@@ -83,11 +83,14 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://pypi.org/project/dj-database-url/ 
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=f'sqlite:///{BASE_DIR / 'storage' / 'db.sqlite3'}',
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "myappdb",
+        "USER": "myappdbuser",
+        "PASSWORD": "myappdbpass",
+        "HOST": "db",
+        "PORT": "5432",
+    }
 }
 
 
@@ -107,6 +110,10 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 

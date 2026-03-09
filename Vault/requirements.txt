@@ -8,3 +8,4 @@ django-smart-fixtures==2.0.3
 
 # Uncomment for PostgreSQL Database Support
 psycopg==3.2.6 
+psycopg2-binary

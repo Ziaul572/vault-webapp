@@ -26,31 +26,31 @@
             <h4 class="auth-title">Create Account</h4>
 
             <!-- Registration Form -->
-            <form action="{% url 'myapp:dashboard' %}" method="POST" class="mt-4">
+            <form action="{% url 'myapp:register' %}" method="POST" class="mt-4">
                 {% csrf_token %}
                 <div class="mb-3">
                     <label class="form-label" for="fullname">Full Name</label>
-                    <input type="text" class="form-control" id="fullname" placeholder="John Doe" required>
+                    <input type="text" class="form-control" name="username" placeholder="John Doe" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                    <input type="email" class="form-control" name="email" placeholder="you@example.com" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="dob">Date of Birth</label>
-                    <input type="date" class="form-control" id="dob" required>
+                    <input type="date" class="form-control" name="dob" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                    <input type="password" class="form-control" name="password" placeholder="••••••••" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="confirm-password">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirm-password" placeholder="••••••••" required>
+                    <input type="password" class="form-control" name="confirm_password" placeholder="••••••••" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">Create Account</button>
