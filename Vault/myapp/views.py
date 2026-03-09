@@ -3,11 +3,14 @@ import logging
 from django.http import HttpRequest
 from django.shortcuts import  render, redirect
 from django.utils import timezone
+
+from myapp.models import BankAccount
 from .forms import RegisterForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+
 
 
 logger = logging.getLogger(__name__)
@@ -82,6 +85,14 @@ def register(request):
 
             user.save()
             print("USER SAVED")
+
+            ## Create a default bank account for the new user
+            BankAccount.objects.create(
+            user=user,
+            account_type="STANDARD",
+            balance=0
+    )
+            print("USER AND BANK ACCOUNT CREATED")
 
             return redirect('/login/')
         

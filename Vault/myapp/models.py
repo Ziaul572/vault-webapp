@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+import uuid
+import random
 
 
 
@@ -21,25 +22,26 @@ class UserProfile(models.Model):
         return self.user.username
     
 
-class Account(models.Model):
+def generate_account_number():
+    return str(random.randint(1000000000, 9999999999))
+
+
+class BankAccount(models.Model):
 
     ACCOUNT_TYPES = [
-        ('checking', 'Checking'),
-        ('savings', 'Savings'),
+        ("STANDARD", "Standard Account"),
+        ("SAVINGS", "Savings Account"),
+        ("BUSINESS", "Business Account"),
     ]
 
+    account_number = models.CharField(max_length=20, unique=True, default=generate_account_number)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    account_number = models.CharField(max_length=20, unique=True)
-
     account_type = models.CharField(max_length=20, choices=ACCOUNT_TYPES)
-
-    balance = models.DecimalField(max_digits=10, decimal_places=2)
-
+    balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.account_number
+        return f"{self.account_number} - {self.user.username}"
     
 
 class Transaction(models.Model):
@@ -51,7 +53,7 @@ class Transaction(models.Model):
     ]
 
     from_account = models.ForeignKey(
-        'Account',
+        'BankAccount',
         on_delete=models.CASCADE,
         related_name='outgoing_transactions',
         null=True,
@@ -59,7 +61,7 @@ class Transaction(models.Model):
     )
 
     to_account = models.ForeignKey(
-        'Account',
+        'BankAccount',
         on_delete=models.CASCADE,
         related_name='incoming_transactions',
         null=True,
