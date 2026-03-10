@@ -11,7 +11,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
+from decimal import Decimal
 
 
 logger = logging.getLogger(__name__)
@@ -91,7 +91,7 @@ def transfer(request):
         from_account_id = request.POST.get("from_account")
         print("FROM ACCOUNT ID:", from_account_id)
         to_account_number = request.POST.get("to_account")
-        amount = float(request.POST.get("amount"))
+        amount = Decimal(request.POST.get("amount"))
         description = request.POST.get("reference")
 
         from_account = BankAccount.objects.get(id=from_account_id)
