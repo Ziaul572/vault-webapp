@@ -57,16 +57,20 @@
     
 
     <!-- Transfer Form -->
-    <form class="transfer-form">
+    <form class="transfer-form" method="post">
+      {% csrf_token %}
       <h1 style="text-align: center;">Send / Transfer Money</h1>
     <p class="subtitle" style="text-align: center;">Transfer funds between accounts or to another user</p>
 
       <!-- From Account -->
       <div class="form-group">
         <label for="fromAccount">From Account</label>
-        <select id="fromAccount" name="fromAccount">
-          <option>Savings Account - €5,420.75</option>
-          <option>Current Account - €1,230.40</option>
+        <select id="fromAccount" name="from_account">
+          {% for account in accounts %}
+        <option value="{{ account.id }}">
+            {{ account.get_account_type_display }} - €{{ account.balance }}
+        </option>
+          {% endfor %}
         </select>
       </div>
 
@@ -76,9 +80,9 @@
         <input
           type="text"
           id="toAccount"
-          name="toAccount"
+          name="to_account"
           placeholder="Recipient account number"
-        >
+>
       </div>
 
       <!-- Amount -->
@@ -86,6 +90,7 @@
         <label for="amount">Amount (€)</label>
         <input
           type="number"
+          step="0.01"
           id="amount"
           name="amount"
           placeholder="Enter amount"
