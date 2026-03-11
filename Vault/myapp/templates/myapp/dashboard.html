@@ -97,30 +97,24 @@
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Description</th>
-                        <th>Amount</th>
                         <th>Type</th>
+                        <th>Amount</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for tx in transactions %}
+
                     <tr>
-                        <td>12 Jan 2026</td>
-                        <td>Grocery Store</td>
-                        <td>€45.00</td>
-                        <td>Debit</td>
+
+                        <td>{{ tx.created_at|date:"M d H:i" }}</td>
+                        <td>{{ tx.transaction_type }}</td>
+                        <td>€{{ tx.amount }}</td>
+                        <td>{{ tx.description }}</td>
+
                     </tr>
-                    <tr>
-                        <td>10 Jan 2026</td>
-                        <td>Salary</td>
-                        <td>€1,200.00</td>
-                        <td>Credit</td>
-                    </tr>
-                    <tr>
-                        <td>08 Jan 2026</td>
-                        <td>Electricity Bill</td>
-                        <td>€90.00</td>
-                        <td>Debit</td>
-                    </tr>
+
+                {% endfor %}
                 </tbody>
             </table>
 

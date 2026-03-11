@@ -5,6 +5,7 @@ from django.shortcuts import  render, redirect
 from django.utils import timezone
 
 from myapp.models import BankAccount, Transaction
+from .models import Transaction, BankAccount
 from django.db import transaction
 from .forms import RegisterForm
 from django.contrib.auth import authenticate, login
@@ -38,7 +39,16 @@ def dashboard(request):
         account.balance for account in accounts if account.account_type == "SAVINGS"
     )
 
+    transactions = Transaction.objects.filter(
+        from_account__in=accounts
+    ) | Transaction.objects.filter(
+        to_account__in=accounts
+    )
+
+    transactions = transactions.order_by("-created_at")[:5]
+
     context = {
+        "transactions": transactions,
         "accounts": accounts,
         "total_accounts": total_accounts,
         "total_balance": total_balance,
@@ -83,7 +93,22 @@ def loans(request):
     return render(request, 'myapp/loans.html')
 
 def transactions(request):
-    return render(request, 'myapp/transaction.html')
+
+    accounts = BankAccount.objects.filter(user=request.user)
+
+    transactions = Transaction.objects.filter(
+        from_account__in=accounts
+    ) | Transaction.objects.filter(
+        to_account__in=accounts
+    )
+
+    transactions = transactions.order_by("created_at")
+
+    return render(
+        request,
+        "myapp/transaction.html",
+        {"transactions": transactions}
+    )
 
 def transfer(request):
     if request.method == "POST":

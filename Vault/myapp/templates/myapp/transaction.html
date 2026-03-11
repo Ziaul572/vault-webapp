@@ -82,45 +82,45 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>05 Feb 2026</td>
-                        <td>Salary Credit</td>
-                        <td class="credit">Credit</td>
-                        <td class="credit">€2,500.00</td>
-                        <td class="status completed">Completed</td>
-                    </tr>
+
+                    {% for tx in transactions %}
 
                     <tr>
-                        <td>03 Feb 2026</td>
-                        <td>Grocery Store</td>
-                        <td class="debit">Debit</td>
-                        <td class="debit">-€85.40</td>
+                        <td>{{ tx.created_at|date:"d M Y" }}</td>
+                        <td>{{ tx.description }}
+                            {% if tx.from_account.user == request.user %}
+                            <br><small><b>To:</b> {{ tx.to_account.account_number }}</small>
+                            {% else %}
+                            <br><small><b>From:</b> {{ tx.from_account.account_number }}</small>
+                            {% endif %}
+                        </td>
+                        <td class="{% if tx.from_account.user == request.user %}debit{% else %}credit{% endif %}">
+                            {% if tx.from_account.user == request.user %}
+                                Debit
+                                {% else %}
+                                Credit
+                            {% endif %}
+                        </td>
+                        <td class="{% if tx.from_account.user == request.user %}debit{% else %}credit{% endif %}">
+
+                            {% if tx.from_account.user == request.user %}
+                            -€{{ tx.amount }}
+                            {% else %}
+                            €{{ tx.amount }}
+                            {% endif %}
+
+                        </td>
                         <td class="status completed">Completed</td>
                     </tr>
-
+                            {% empty %}
                     <tr>
-                        <td>01 Feb 2026</td>
-                        <td>Electricity Bill</td>
-                        <td class="debit">Debit</td>
-                        <td class="debit">-€120.00</td>
-                        <td class="status completed">Completed</td>
+                        <td colspan="5" style="text-align:center;">
+                            No transactions yet
+                        </td>
                     </tr>
-
-                    <tr>
-                        <td>30 Jan 2026</td>
-                        <td>Transfer to Savings</td>
-                        <td class="debit">Debit</td>
-                        <td class="debit">-€300.00</td>
-                        <td class="status pending">Pending</td>
-                    </tr>
-
-                    <tr>
-                        <td>28 Jan 2026</td>
-                        <td>Online Refund</td>
-                        <td class="credit">Credit</td>
-                        <td class="credit">€45.00</td>
-                        <td class="status completed">Completed</td>
-                    </tr>
+                    
+                    
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
