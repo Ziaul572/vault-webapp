@@ -1,4 +1,5 @@
 import logging
+from random import random
 
 from django.http import HttpRequest
 from django.shortcuts import  render, redirect
@@ -87,7 +88,33 @@ def login_view(request):
     return render(request, "myapp/loginPage.html")
 
 def accounts(request):
-    return render(request, 'myapp/accounts.html')
+
+    accounts = BankAccount.objects.filter(user=request.user)
+
+    context = {
+        "accounts": accounts
+    }
+
+    return render(request, "myapp/accounts.html", context)
+
+def create_account(request):
+
+    if request.method == "POST":
+
+        account_type = request.POST.get("account_type")
+
+        account_number = str(random.randint(1000000000, 9999999999))
+
+        BankAccount.objects.create(
+            user=request.user,
+            account_type=account_type,
+            account_number=account_number,
+            balance=0
+        )
+
+        return redirect("/accounts/")
+
+    return redirect("/accounts/")
 
 def loans(request):
     return render(request, 'myapp/loans.html')

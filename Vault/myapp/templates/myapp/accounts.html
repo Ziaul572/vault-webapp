@@ -2,8 +2,8 @@
 {% load static %}
 
 
-<!DOCTYPE html>
-<html lang="en">
+
+
 <head>
   <!-- Character encoding -->
   <meta charset="UTF-8">
@@ -19,7 +19,7 @@
   <!-- Page specific styles -->
   <link rel="stylesheet" href="{% static 'myapp/css/accounts.css' %}">
 </head>
-<body>
+
     {% block navbar %}
     
 
@@ -64,46 +64,77 @@
     <h1>Your Accounts</h1>
     <p class="subtitle">Overview of your banking accounts</p>
 
+    <button class="btn-transfer" onclick="openModal()">
+        + Create New Account
+    </button>
+
     <!-- Accounts Grid -->
     <section class="accounts-grid">
 
-      <!-- Savings Account using demo datas-->
-      <div class="account-card">
-        <h2>Savings Account</h2>
-        <p class="account-number">Account No: VAU-20458932</p>
+{% for account in accounts %}
 
-        <div class="balance">
-          <span>Current Balance</span>
-          <strong>€5,420.75</strong>
-        </div>
+<div class="account-card">
 
-        <ul class="account-info">
-          <li>Interest Rate: 2.1%</li>
-          <li>Status: Active</li>
-          <li>Opened: Jan 2024</li>
-        </ul>
-      </div>
+<h2>{{ account.account_type }} Account</h2>
 
-      <!-- Current Account using demo datas-->
-      <div class="account-card">
-        <h2>Current Account</h2>
-        <p class="account-number">Account No: VAU-87410219</p>
+<p class="account-number">
+Account No: {{ account.account_number }}
+</p>
 
-        <div class="balance">
-          <span>Available Balance</span>
-          <strong>€1,230.40</strong>
-        </div>
+<div class="balance">
+<span>Current Balance</span>
+<strong>€{{ account.balance }}</strong>
+</div>
 
-        <ul class="account-info">
-          <li>Overdraft: €500</li>
-          <li>Status: Active</li>
-          <li>Opened: Mar 2024</li>
-        </ul>
-      </div>
+<ul class="account-info">
+<li>Status: Active</li>
+<li>Opened: {{ account.created_at|date:"M Y" }}</li>
+</ul>
 
-    </section>
+</div>
 
+{% empty %}
+
+<p>No accounts found. Create a new account.</p>
+
+{% endfor %}
+
+</section>
+
+    <!-- Account Creation Modal -->
+<div id="accountModal" class="account-card">
+
+  <div class="modal-content">
+
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+
+    <h2>Create New Account</h2>
+
+    <form method="POST" action="{% url 'myapp:create_account' %}">
+      {% csrf_token %}
+
+      <label>Account Type</label>
+
+      <select name="account_type" required>
+        <option value="SAVINGS">Savings Account</option>
+        <option value="CURRENT">Current Account</option>
+      </select>
+
+      <button type="submit" class="btn-transfer">
+        Create Account
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+    
   </main>
+
+  
 
   <!-- FOOTER -->
 <footer class="site-footer">
@@ -157,8 +188,30 @@
         </div>
     </div>
 </footer>
-</body>
+
+<script>
+
+function openModal(){
+document.getElementById("accountModal").style.display = "flex";
+}
+
+function closeModal(){
+document.getElementById("accountModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+  let modal = document.getElementById("accountModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+</script>
+
+
+
+
+
 {% endblock %}
-</html>
 
 
