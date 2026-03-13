@@ -1,5 +1,5 @@
 import logging
-from random import random
+import random
 
 from django.http import HttpRequest
 from django.shortcuts import  render, redirect
@@ -166,8 +166,11 @@ def transfer(request):
 
         with transaction.atomic():
 
-            from_account.balance -= amount
-            to_account.balance += amount
+            from_account = BankAccount.objects.select_for_update().get(id=from_account_id)
+            to_account = BankAccount.objects.select_for_update().get(account_number=to_account_number)
+
+            from_account.balance = from_account.balance - amount
+            to_account.balance = to_account.balance + amount
 
             from_account.save()
             to_account.save()
