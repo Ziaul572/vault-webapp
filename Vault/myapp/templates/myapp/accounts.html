@@ -43,13 +43,15 @@
                 <a class="nav-link" href="{% url 'myapp:loans' %}">Loans</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link-logout nav-link" href="{% url 'myapp:login' %}">Logout</a>
+                <a class="nav-link-logout nav-link" href="{% url 'myapp:logout' %}">Logout</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">       </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'myapp:profile' %}">User</a>
+                <a class="nav-link" href="{% url 'myapp:profile' %}">
+                    {{ request.user.username }}
+                </a>
             </li>
         </ul>
     </div>

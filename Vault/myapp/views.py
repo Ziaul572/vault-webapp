@@ -12,6 +12,7 @@ from .forms import RegisterForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from decimal import Decimal
 
@@ -58,6 +59,8 @@ def dashboard(request):
 
     return render(request, "myapp/dashboard.html", context)
 
+
+
 def login_view(request):
 
     if request.method == "POST":
@@ -87,6 +90,12 @@ def login_view(request):
 
     return render(request, "myapp/loginPage.html")
 
+
+def logout_view(request):
+    logout(request)
+    return redirect("/login/")
+
+@login_required
 def accounts(request):
 
     accounts = BankAccount.objects.filter(user=request.user)
@@ -116,9 +125,12 @@ def create_account(request):
 
     return redirect("/accounts/")
 
+@login_required
 def loans(request):
     return render(request, 'myapp/loans.html')
 
+
+@login_required
 def transactions(request):
 
     accounts = BankAccount.objects.filter(user=request.user)
@@ -137,6 +149,8 @@ def transactions(request):
         {"transactions": transactions}
     )
 
+
+@login_required
 def transfer(request):
     if request.method == "POST":
 
@@ -224,6 +238,8 @@ def register(request):
 
     return render(request, "myapp/register.html", {"form": form})
 
+
+@login_required
 def profile(request):
     return render(request, "myapp/profile.html")
 
