@@ -24,29 +24,31 @@
      
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">VAULT</a>
+        <a class="navbar-brand fw-bold" href="{% url 'myapp:home' %}">VAULT</a>
 
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link" href="dashboard.html">Dashboard</a>
+                <a class="nav-link " href="{% url 'myapp:dashboard' %}">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="accounts.html">Accounts</a>
+                <a class="nav-link " href="{% url 'myapp:accounts' %}">Accounts</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="transaction.html">Transactions</a>
+                <a class="nav-link" href="{% url 'myapp:transactions' %}">Transactions</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="loans.html">Loans</a>
+                <a class="nav-link" href="{% url 'myapp:loans' %}">Loans</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-link-logout" href="{% url 'myapp:logout' %}">Logout</a>
+                <a class="nav-link-logout nav-link" href="{% url 'myapp:logout' %}">Logout</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">       </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="profile.html">User</a>
+                <a class="nav-link active" href="{% url 'myapp:profile' %}">
+                    {{ request.user.username }}
+                </a>
             </li>
         </ul>
     </div>
@@ -62,41 +64,49 @@
     <div class="profile-card">
 
       <div class="profile-header">
-        <div class="avatar">ZH</div>
-        <h2>Ziaul Haque</h2>
+        <div class="avatar">
+          {% if profile.profile_picture %}
+            <img src="{{ profile.profile_picture.url }}" class="avatar-img">
+              {% else %}
+            <div class="avatar">
+              {{ request.user.first_name|slice:":1" }}{{ request.user.last_name|slice:":1" }}
+            </div>
+              {% endif %}
+        </div>
+        <h2>{{ request.user.first_name }} {{ request.user.last_name }}</h2>
         <p class="role">Savings Account Holder</p>
       </div>
 
       <div class="profile-details">
         <div class="detail-row">
           <span>Email</span>
-          <span>ziaul@example.com</span>
+          <span>{{ request.user.email }}</span>
         </div>
 
         <div class="detail-row">
           <span>Phone</span>
-          <span>+353 87 123 4567</span>
+          <span>{{ profile.phone }}</span>
         </div>
 
         <div class="detail-row">
           <span>Account Number</span>
-          <span>VAU-20458932</span>
+          <span>{{ account.account_number }}</span>
         </div>
 
         <div class="detail-row">
           <span>Account Type</span>
-          <span>Savings</span>
+          <span>{{ account.get_account_type_display }}</span>
         </div>
 
         <div class="detail-row">
           <span>Member Since</span>
-          <span>January 2024</span>
+          <span>{{ request.user.date_joined|date:"F Y" }}</span>
         </div>
       </div>
 
       <div class="profile-actions">
-        <button class="btn-primary">Edit Profile</button>
-        <button class="btn-secondary">Change Password</button>
+        <a href="{% url 'myapp:profile' %}" class="btn-primary">Edit Profile</a>
+        <a href="" class="btn-secondary">Change Password</a>
       </div>
 
     </div>

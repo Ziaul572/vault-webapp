@@ -6,7 +6,7 @@ from django.shortcuts import  render, redirect
 from django.utils import timezone
 
 from myapp.models import BankAccount, Transaction
-from .models import Transaction, BankAccount
+from .models import Transaction, BankAccount, UserProfile
 from django.db import transaction
 from .forms import RegisterForm
 from django.contrib.auth import authenticate, login
@@ -241,7 +241,43 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, "myapp/profile.html")
+
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    account = BankAccount.objects.filter(user=request.user).first()
+
+    context = {
+        "profile": profile,
+        "account": account
+    }
+
+    return render(request, "myapp/profile.html", context)
+
+@login_required
+def edit_profile(request):
+
+    profile = request.user.userprofile
+
+    if request.method == "POST":
+
+        request.user.first_name = request.POST.get("first_name")
+        request.user.last_name = request.POST.get("last_name")
+        request.user.email = request.POST.get("email")
+
+        profile.phone = request.POST.get("phone")
+        profile.address = request.POST.get("address")
+
+        if "profile_picture" in request.FILES:
+            profile.profile_picture = request.FILES["profile_picture"]
+
+        request.user.save()
+        profile.save()
+
+        return redirect("/profile/")
+
+    return render(request, "myapp/edit_profile.html", {
+        "profile": profile
+    })
 
 
 

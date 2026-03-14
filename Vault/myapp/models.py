@@ -2,21 +2,24 @@ from django.contrib.auth.models import User
 from django.db import models
 import uuid
 import random
+from django.utils import timezone
 
 
 
 class UserProfile(models.Model):
 
-    ## test database entry
-    ##User.objects.create_user(username="testuser", password="12345")
-
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    phone_number = models.CharField(max_length=15)
+    profile_picture = models.ImageField(
+        upload_to="myapp/assets/images/profile_pictures/",
+        default="myapp/assets/images/profile_pictures/default.svg"
+    )
 
-    address = models.TextField()
+    phone = models.CharField(max_length=20, blank=True)
+    address = models.TextField(blank=True)
+    date_of_birth = models.DateField(null=True, blank=True)
 
-    date_of_birth = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user.username
