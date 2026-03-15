@@ -29,17 +29,17 @@
 
 /* profile logo placeholder */
 .avatar {
-  width: 80px;
-  height: 80px;
-  background: #0a2540;
-  color: #ffffff;
-  border-radius: 50%;
-  font-size: 28px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 15px;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .profile-header h2 {
