@@ -1,4 +1,4 @@
-from tkinter import Image
+from PIL import Image
 
 from django.contrib.auth.models import User
 from django.db import models
