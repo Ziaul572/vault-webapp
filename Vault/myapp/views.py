@@ -275,7 +275,7 @@ def edit_profile(request):
 
         return redirect("/profile/")
 
-    return render(request, "myapp/edit_profile.html", {
+    return render(request, "myapp/profileEdit.html", {
         "profile": profile
     })
 

@@ -1,3 +1,5 @@
+from tkinter import Image
+
 from django.contrib.auth.models import User
 from django.db import models
 import uuid
@@ -20,6 +22,19 @@ class UserProfile(models.Model):
     date_of_birth = models.DateField(null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+
+        super().save(*args, **kwargs)
+
+        if self.profile_picture:
+            img = Image.open(self.profile_picture.path)
+
+            max_size = (300, 300)
+
+            if img.height > 300 or img.width > 300:
+                img.thumbnail(max_size)
+                img.save(self.profile_picture.path)
 
     def __str__(self):
         return self.user.username

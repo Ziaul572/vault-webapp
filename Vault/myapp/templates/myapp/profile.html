@@ -24,7 +24,7 @@
      
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="{% url 'myapp:home' %}">VAULT</a>
+        <a class="navbar-brand fw-bold" href="{% url 'myapp:dashboard' %}">VAULT</a>
 
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
@@ -67,13 +67,11 @@
         <div class="avatar">
           {% if profile.profile_picture %}
             <img src="{{ profile.profile_picture.url }}" class="avatar-img">
-              {% else %}
-            <div class="avatar">
-              {{ request.user.first_name|slice:":1" }}{{ request.user.last_name|slice:":1" }}
-            </div>
-              {% endif %}
+          {% else %}
+            <img src="{% static 'myapp/images/default-avatar.png' %}" class="avatar-img">
+          {% endif %}
         </div>
-        <h2>{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+        <h2>{{ request.user.first_name|default:"First Name" }} {{ request.user.last_name|default:"Last Name" }}</h2>
         <p class="role">Savings Account Holder</p>
       </div>
 
@@ -85,7 +83,12 @@
 
         <div class="detail-row">
           <span>Phone</span>
-          <span>{{ profile.phone }}</span>
+          <span>{{ profile.phone|default:"Add phone number" }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span>Address</span>
+          <span>{{ profile.address|default:"Add address" }}</span>
         </div>
 
         <div class="detail-row">
@@ -105,7 +108,7 @@
       </div>
 
       <div class="profile-actions">
-        <a href="{% url 'myapp:profile' %}" class="btn-primary">Edit Profile</a>
+        <a href="{% url 'myapp:edit_profile' %}" class="btn-primary">Edit Profile</a>
         <a href="" class="btn-secondary">Change Password</a>
       </div>
 

@@ -27,7 +27,18 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--dark-color);
 }
 
+.avatar-preview{
+    display:flex;
+    justify-content:center;
+    margin-bottom:10px;
+}
 
+.avatar-img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+}
 
 /* Buttons */
 .btn {
