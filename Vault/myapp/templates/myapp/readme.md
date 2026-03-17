@@ -1,141 +1,107 @@
-# Vault Bank – Loans Page
+# VAULT – Online Banking Web Application
 
-## Student Information
-- Module: EEN1037 Web Application Development (20713)
-- Assignment: Assignment 1 (Front-End)
-- Project Name: Vault Bank
-- Pages: 10
+VAULT is a web-based banking system developed using Django.  
+The application allows users to manage bank accounts, perform transactions, apply for loans, and monitor their financial activity through a dashboard.
 
----
-
-## Project Overview
-Vault Bank is a client-side web application prototype designed to demonstrate
-modern web application interface concepts using **HTML5, Bootstrap and CSS only**.
-
-The application simulates an online banking platform where users can:
-- Log in or register
-- View dashboard information
-- Manage accounts
-- View transactions
-- Transfer money
-- View loan options
-- Manage user profile
-
-This project focuses solely on **front-end design and structure**.
-No JavaScript, backend, or database functionality is implemented, in
-accordance with Assignment 1 requirements.
-
----
-## Pages Description
-
-### 1. index.html (Homepage)
-- Entry point of the application
-- Displays Vault branding, punchline, and navigation
-- Includes a static cards on bank services implemented using HTML & CSS only
-- Contains a footer shared across the website
+This project was developed as part of a Web Application Development assignment.
 
 ---
 
-### 2. login.html
-- User authentication interface
-- Includes email and password input fields
-- Vault logo is clickable and redirects to index.html
-- Styled using `main.css`, `auth.css`, `navbar.css` and `form.css`
+## Features
 
----
+### User Authentication
+- User registration and login
+- Session-based authentication
+- Secure logout
 
-### 3. register.html
-- User registration page
-- Collects basic user details (demo only)
-- Uses semantic HTML form elements
-- Shares consistent styling with the login page
+### Account Management
+- Create multiple bank accounts
+- View account balances
+- Account overview dashboard
 
----
+### Transactions
+- Transfer money between accounts
+- Deposit funds
+- Withdraw funds
+- Transaction history tracking
 
-### 4. dashboard.html
-- User landing page after login
-- Displays account summary and quick actions
-- Acts as a central navigation hub
-- Uses structured layout and reusable components
+### Loan System
+- Apply for different loan types
+- View loan applications
+- Loan status tracking (Pending)
 
----
+### User Profile
+- Edit personal information
+- Upload profile picture
+- View account details
 
-### 5. accounts.html
-- Displays multiple bank accounts using demo data
-- Shows account type, balance, and status
-- Designed using card-based layout
-
----
-
-### 6. transactions.html
-- Lists recent transactions with demo data
-- Includes a button to navigate to the transfer page
-- Demonstrates tabular data presentation using HTML
-
----
-
-### 7. transfer.html
-- Money transfer interface
-- Contains a static form for selecting accounts and entering amounts
-- No real transaction processing (front-end only)
-
----
-
-### 8. loans.html
-- Displays different loan types:
-  - Personal Loan
-  - Home Loan
-  - Car Loan
-- Includes a demonstration loan application form
-- Apply button is disabled as backend is not implemented
-
----
-
-### 9. profile.html
-- User profile page with demo personal information
-- Structured layout for readability
-- Designed for future expansion (edit profile, security settings)
-
----
-
-## CSS Structure Explanation
-- `main.css`: Global styles (fonts, colors, layout)
-- `navbar.css`: Navigation bar styling
-- `auth.css`: Authentication-related pages (login/register)
-- `form.css`: Shared form styling across pages
-- Page-specific CSS files handle layout unique to each page
-
-This separation improves maintainability and scalability.
+### Dashboard
+- Overview of accounts
+- Recent transactions
+- Pending loan applications
 
 ---
 
 ## Technologies Used
-- HTML (semantic elements, forms, accessibility)
-- CSS (layout, typography)
-- Bootstrap (responsiveness)
+
+- Python
+- Django
+- HTML
+- CSS
+- Bootstrap
+- PostgreSQL
+- Docker
+
+## Database Models
+
+### UserProfile
+Stores additional user information such as phone, address, and profile picture.
+
+### BankAccount
+Represents user bank accounts with account number, type, and balance.
+
+### Transaction
+Records financial transactions including transfers, deposits, and withdrawals.
+
+### Loan
+Stores loan applications including amount, type, duration, and status.
 
 ---
 
-## Assignment Compliance
-✔ HTML & CSS only  
-✔ No JavaScript or backend code  
-✔ Relative file paths used  
-✔ Well-commented code  
-✔ Easy-to-navigate interface  
-✔ Expandable for future assignments  
+## Security Features
+
+The system includes several security measures:
+
+- Django authentication system
+- CSRF protection
+- Session management
+- Atomic database transactions
+- User account ownership verification
 
 ---
 
-## Future Enhancements
-The following features will be implemented in subsequent assignments:
-- Backend integration
-- Form validation
-- Authentication logic
-- Database connectivity
-- Dynamic transactions and loan processing
+## How to Run the Project
 
----
+### Using Docker
+
+1. Download and extract the zip file
+
+2. To start the containers, open cmd and in in project directory run the given command,
+
+docker compose up --build
+
+3. To run migrations for the databases run this command below,
+
+docker compose exec main python manage.py migrate
+
+4. Finally Access the application with any browser with the localhost link
+
+http://localhost:8000
+
 
 ## Author
-Ziaul Haque
 
+Ziaul Haque Rafi
+A00096932
+MEng Electronic and Computer Engineering  
+Dublin City University
