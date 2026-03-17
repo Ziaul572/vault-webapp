@@ -124,3 +124,37 @@ class Loan(models.Model):
 
     def __str__(self):
         return f"Loan {self.loan_amount} - {self.status}"
+    
+
+class Loan(models.Model):
+
+    LOAN_STATUS = [
+        ("PENDING", "Pending"),
+        ("APPROVED", "Approved"),
+        ("REJECTED", "Rejected"),
+    ]
+
+    LOAN_TYPES = [
+        ("PERSONAL", "Personal Loan"),
+        ("CAR", "Car Loan"),
+        ("HOME", "Home Loan"),
+    ]
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+
+    loan_type = models.CharField(max_length=20, choices=LOAN_TYPES)
+
+    duration_months = models.IntegerField()
+
+    status = models.CharField(
+        max_length=20,
+        choices=LOAN_STATUS,
+        default="PENDING"
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.amount}"

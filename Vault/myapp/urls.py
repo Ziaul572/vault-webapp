@@ -17,4 +17,6 @@ urlpatterns = [
     path("create-account/", views.create_account, name="create_account"),
     path("logout/", views.logout_view, name="logout"),
     path("profileEdit/", views.edit_profile, name="edit_profile"),
+    path("deposit/", views.deposit, name="deposit"),
+    path("withdraw/", views.withdraw, name="withdraw"),
 ]

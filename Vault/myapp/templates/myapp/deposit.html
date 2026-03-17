@@ -1,5 +1,5 @@
 {% extends "myapp/base.html" %}
-
+{% load static %}
 
 {% block navbar %}
 
@@ -18,7 +18,7 @@
                 <a class="nav-link" href="{% url 'myapp:transactions' %}">Transactions</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="{% url 'myapp:loans' %}">Loans</a>
+                <a class="nav-link" href="{% url 'myapp:loans' %}">Loans</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link-logout nav-link" href="{% url 'myapp:logout' %}">Logout</a>
@@ -37,65 +37,36 @@
 
 {% block content %}
 
-<main class="loans-container">
-<cards class="loans-cards">
-<h1>Loans</h1>
-<p class="subtitle">Apply for a loan</p>
+<main class="banking-container">
 
-<form method="post" class="loan-form">
+<form class="banking-form" method="post">
 {% csrf_token %}
 
-<label>Loan Type</label>
-<select name="loan_type">
-<option value="PERSONAL">Personal Loan</option>
-<option value="CAR">Car Loan</option>
-<option value="HOME">Home Loan</option>
-</select>
+<h1>Deposit Money</h1>
+<p class="subtitle">Add funds to your account</p>
 
+<div class="form-group">
+<label>Account</label>
+<select name="account">
+{% for account in accounts %}
+<option value="{{ account.id }}">
+{{ account.get_account_type_display }} - €{{ account.balance }}
+</option>
+{% endfor %}
+</select>
+</div>
+
+<div class="form-group">
 <label>Amount (€)</label>
 <input type="number" step="0.01" name="amount">
+</div>
 
-<label>Duration (Months)</label>
-<input type="number" name="duration">
-
-<button type="submit" class="btn-primary">
-Apply for Loan
-</button>
+<div class="form-actions">
+<button type="submit" class="btn-primary">Deposit</button>
+<a href="{% url 'myapp:dashboard' %}" class="btn-secondary">Cancel</a>
+</div>
 
 </form>
-
-
-<h2>Your Loan Applications</h2>
-
-<table class="table">
-<thead>
-<tr>
-<th>Date</th>
-<th>Type</th>
-<th>Amount</th>
-<th>Duration</th>
-<th>Status</th>
-</tr>
-</thead>
-
-<tbody>
-
-{% for loan in loans %}
-
-<tr>
-<td>{{ loan.created_at|date:"d M Y" }}</td>
-<td>{{ loan.get_loan_type_display }}</td>
-<td>€{{ loan.amount }}</td>
-<td>{{ loan.duration_months }} months</td>
-<td>{{ loan.get_status_display }}</td>
-</tr>
-
-{% endfor %}
-
-</tbody>
-
-</table>
-</cards>
 
 </main>
 

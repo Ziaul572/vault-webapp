@@ -37,3 +37,17 @@
     margin-top: 3rem !important;
     margin-bottom: 7rem !important;
 }
+
+
+.dashboard-card{
+    background:rgb(187, 35, 35);
+    padding:20px;
+    border-radius:10px;
+    margin-top:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.status.pending{
+    color:#ff9800;
+    font-weight:600;
+}

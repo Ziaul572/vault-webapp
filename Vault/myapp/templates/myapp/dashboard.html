@@ -122,6 +122,56 @@
     </div>
 
 </div>
+
+<div class="container my-5">
+
+    <div class="card summary-card">
+        <div class="card-body">
+<section class="dashboard-card">
+
+<h5 class="mb-3">Pending Loans</h5>
+
+{% if pending_loans %}
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Type</th>
+<th>Amount</th>
+<th>Duration</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for loan in pending_loans %}
+
+<tr>
+<td>{{ loan.get_loan_type_display }}</td>
+<td>€{{ loan.amount }}</td>
+<td>{{ loan.duration_months }} months</td>
+<td class="status pending">{{ loan.status }}</td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+</table>
+
+{% else %}
+
+<p>No pending loan applications.</p>
+
+{% endif %}
+
+
+
+</section>
+</div>
+</div>
+</div>
+
 <!-- FOOTER -->
 <footer class="site-footer">
     <div class="container">

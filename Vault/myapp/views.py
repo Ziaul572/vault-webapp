@@ -4,6 +4,7 @@ import random
 from django.http import HttpRequest
 from django.shortcuts import  render, redirect
 from django.utils import timezone
+from .models import Loan
 
 from myapp.models import BankAccount, Transaction
 from .models import Transaction, BankAccount, UserProfile
@@ -49,12 +50,18 @@ def dashboard(request):
 
     transactions = transactions.order_by("-created_at")[:5]
 
+    pending_loans = Loan.objects.filter(
+        user=request.user,
+        status="PENDING"
+    )
+
     context = {
         "transactions": transactions,
         "accounts": accounts,
         "total_accounts": total_accounts,
         "total_balance": total_balance,
         "savings_balance": savings_balance,
+        "pending_loans": pending_loans
     }
 
     return render(request, "myapp/dashboard.html", context)
@@ -127,8 +134,82 @@ def create_account(request):
 
 @login_required
 def loans(request):
-    return render(request, 'myapp/loans.html')
 
+    if request.method == "POST":
+
+        amount = request.POST.get("amount")
+        loan_type = request.POST.get("loan_type")
+        duration = request.POST.get("duration")
+
+        Loan.objects.create(
+            user=request.user,
+            amount=amount,
+            loan_type=loan_type,
+            duration_months=duration
+        )
+
+        return redirect("myapp:loans")
+
+    loans = Loan.objects.filter(user=request.user)
+
+    return render(request, "myapp/loans.html", {"loans": loans})
+
+@login_required
+def deposit(request):
+
+    if request.method == "POST":
+
+        account_id = request.POST.get("account")
+        amount = Decimal(request.POST.get("amount"))
+
+        account = BankAccount.objects.get(id=account_id)
+
+        if account.user != request.user:
+            return redirect("myapp:dashboard")
+
+        account.balance += amount
+        account.save()
+
+        Transaction.objects.create(
+            to_account=account,
+            amount=amount,
+            transaction_type="DEPOSIT"
+        )
+
+        return redirect("myapp:dashboard")
+
+    accounts = BankAccount.objects.filter(user=request.user)
+
+    return render(request, "myapp/deposit.html", {"accounts": accounts})
+
+
+@login_required
+def withdraw(request):
+
+    if request.method == "POST":
+
+        account_id = request.POST.get("account")
+        amount = Decimal(request.POST.get("amount"))
+
+        account = BankAccount.objects.get(id=account_id)
+
+        if account.balance < amount:
+            return redirect("myapp:withdraw")
+
+        account.balance -= amount
+        account.save()
+
+        Transaction.objects.create(
+            from_account=account,
+            amount=amount,
+            transaction_type="WITHDRAW"
+        )
+
+        return redirect("myapp:dashboard")
+
+    accounts = BankAccount.objects.filter(user=request.user)
+
+    return render(request, "myapp/withdraw.html", {"accounts": accounts})
 
 @login_required
 def transactions(request):

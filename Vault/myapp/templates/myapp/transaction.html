@@ -44,7 +44,9 @@
                 <a class="nav-link" href="">       </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'myapp:profile' %}">User</a>
+                <a class="nav-link" href="{% url 'myapp:profile' %}">
+                    {{ request.user.username }}
+                </a>
             </li>
         </ul>
     </div>
@@ -65,6 +67,12 @@
   </div>
 
   <!-- Transfer Button -->
+  <a href="{% url 'myapp:deposit' %}" class="btn-transfer">
+    Deposit
+  </a>
+  <a href="{% url 'myapp:withdraw' %}" class="btn-transfer">
+    Withdraw
+  </a>
   <a href="{% url 'myapp:transfer' %}" class="btn-transfer">
     + Send / Transfer
   </a>
