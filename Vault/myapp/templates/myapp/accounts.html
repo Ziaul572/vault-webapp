@@ -159,8 +159,8 @@ Account No: {{ account.account_number }}
                 <div class="footer-divider"></div>
                 <ul>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="accounts.html">Accounts</a></li>                   
-                    <li><a href="transaction.html">Transactions</a></li>
+                    <li><a href="{% url 'myapp:accounts' %}">Accounts</a></li>                   
+                    <li><a href="{% url 'myapp:transactions' %}">Transactions</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>

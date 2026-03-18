@@ -1,3 +1,5 @@
+import os
+
 from PIL import Image
 
 from django.contrib.auth.models import User
@@ -13,9 +15,10 @@ class UserProfile(models.Model):            ##user profile model that extends th
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     profile_picture = models.ImageField(
-        upload_to="myapp/assets/images/profile_pictures/",
-        default="myapp/assets/images/profile_pictures/default.svg"
-    )
+    upload_to='profile_pictures/',
+    blank=True,
+    null=True
+)
 
     phone = models.CharField(max_length=20, blank=True)
     address = models.TextField(blank=True)
@@ -24,17 +27,20 @@ class UserProfile(models.Model):            ##user profile model that extends th
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
-
         super().save(*args, **kwargs)
 
-        if self.profile_picture:                          ##function for resizing large image
-            img = Image.open(self.profile_picture.path)
+        if self.profile_picture:
+            if self.profile_picture.name.endswith(".svg"):
+                return  # skip SVG
 
-            max_size = (300, 300)
+            img_path = self.profile_picture.path
+
+            if os.path.exists(img_path):
+                img = Image.open(img_path)
 
             if img.height > 300 or img.width > 300:
-                img.thumbnail(max_size)
-                img.save(self.profile_picture.path)
+                img.thumbnail((300, 300))
+                img.save(img_path)
 
     def __str__(self):
         return self.user.username
