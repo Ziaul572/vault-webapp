@@ -8,7 +8,7 @@ from django.utils import timezone
 
 
 
-class UserProfile(models.Model):
+class UserProfile(models.Model):            ##user profile model that extends the built-in User model with additional fields such as profile picture, phone number, address, and date of birth. It includes a save method that resizes the profile picture to a maximum of 300x300 pixels if it exceeds those dimensions, ensuring that uploaded images are optimized for display on the profile page. The __str__ method returns the username of the associated user for easy identification in the admin interface and other parts of the application where user profiles are displayed.
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
@@ -27,7 +27,7 @@ class UserProfile(models.Model):
 
         super().save(*args, **kwargs)
 
-        if self.profile_picture:
+        if self.profile_picture:                          ##function for resizing large image
             img = Image.open(self.profile_picture.path)
 
             max_size = (300, 300)
@@ -46,7 +46,7 @@ def generate_account_number():
 
 class BankAccount(models.Model):
 
-    ACCOUNT_TYPES = [
+    ACCOUNT_TYPES = [                                           ##types of account with attributes
         ("STANDARD", "Standard Account"),
         ("SAVINGS", "Savings Account"),
         ("BUSINESS", "Business Account"),
@@ -64,7 +64,7 @@ class BankAccount(models.Model):
 
 class Transaction(models.Model):
 
-    TRANSACTION_TYPES = [
+    TRANSACTION_TYPES = [                                           ##transaction types with attributes
         ('deposit', 'Deposit'),
         ('withdrawal', 'Withdrawal'),
         ('transfer', 'Transfer'),
@@ -106,7 +106,7 @@ class Transaction(models.Model):
 
 class Loan(models.Model):
 
-    LOAN_STATUS = [
+    LOAN_STATUS = [                                                 ##loan status with attributes
         ('pending', 'Pending'),
         ('approved', 'Approved'),
         ('rejected', 'Rejected'),
