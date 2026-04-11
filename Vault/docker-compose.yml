@@ -1,17 +1,30 @@
-name: django_een1037_starter_project
 services:
-  main:
-    build: .
+  backend:
+    build: ./backend
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql://myappdbuser:myappdbpass@db:5432/myappdb
+      - DATABASE_URL=postgres://myappdbuser:myappdbpass@db:5432/myappdb
     depends_on:
       db:
-        condition: service_started
+        condition: service_healthy
     volumes:
-      - .:/app
+      - ./backend:/app
       - myapp-storage:/app/storage
+    networks:
+      - vault-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - vault-network
 
   db:
     image: postgres:16-alpine
@@ -19,10 +32,20 @@ services:
       POSTGRES_USER: myappdbuser
       POSTGRES_PASSWORD: myappdbpass
       POSTGRES_DB: myappdb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myappdbuser -d myappdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - vault-network
+
+networks:
+  vault-network:
 
 volumes:
   postgres_data:

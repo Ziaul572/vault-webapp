@@ -1,9 +1,54 @@
-**/__pycache__
-**/*.pyc
+# ─── Exclude everything outside this project ───────────────────────────────
+../
+
+# ─── Python / Django ────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.tox/
+.mypy_cache/
 .pytest_cache/
-storage/*
-staticfiles/*
-!storage/.gitkeep
+.coverage
+htmlcov/
+*.log
+
+# ─── Virtual environments ────────────────────────────────────────────────────
+venv/
+env/
 .venv/
-db.sqlite3
-project-export.zip
+ENV/
+
+# ─── Node / React / Vite ────────────────────────────────────────────────────
+node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+.npm
+.yarn
+
+# ─── Environment / secrets ──────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─── Docker ──────────────────────────────────────────────────────────────────
+*.pid
+
+# ─── OS / Editor ────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+
+# ─── Media / uploads (don't commit user uploads) ────────────────────────────
+backend/storage/
+storage/
+!storage/.gitkeep
